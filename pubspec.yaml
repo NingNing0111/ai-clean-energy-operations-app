@@ -1,0 +1,34 @@
+name: ai_clean_energy_operations_app
+description: "A new Flutter project."
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  # 正常依赖（项目运行需要）
+  flutter_dotenv: ^5.2.1
+  json_annotation: ^4.9.0
+  get: ^4.7.2
+  dio: ^5.8.0+1
+  shared_preferences: ^2.5.3
+  adaptive_theme: ^3.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  # 代码生成工具（开发时使用）
+  build_runner: ^2.3.3
+  json_serializable: ^6.8.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
