@@ -4,7 +4,7 @@ import 'package:ai_clean_energy_operations_app/models/user.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final emptyUserInfo = AuthVO(username: '', token: '', roles: []);
+final emptyUserInfo = AuthVO(id:'-1',username: '', token: '', roles: []);
 
 class UserStore extends GetxController {
   static UserStore get to => Get.find();
@@ -49,6 +49,15 @@ class UserStore extends GetxController {
     try {
       var authVO = AuthVO.fromJson(json.decode(userJson.value));
       return authVO.token;
+    }catch(e) {
+      return null;
+    }
+  }
+
+  String? getCurUserId() {
+    try {
+      var authVO = AuthVO.fromJson(json.decode(userJson.value));
+      return authVO.id;
     }catch(e) {
       return null;
     }

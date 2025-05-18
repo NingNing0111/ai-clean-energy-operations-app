@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 
 class SelectDriver extends StatelessWidget {
   final void Function(LabelVO<String>?)? onChanged;
+  final LabelVO<String>? initialValue;
 
-  const SelectDriver({super.key, this.onChanged});
-
+  const SelectDriver({super.key, this.onChanged, this.initialValue});
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<LabelVO<String>>>(
@@ -17,6 +17,7 @@ class SelectDriver extends StatelessWidget {
         return DropdownSearch<LabelVO<String>>(
           items: (f, cs) => snapshot.data ?? [],
           itemAsString: (item) => item.label,
+          selectedItem: initialValue,
           compareFn:
               (LabelVO<String> a, LabelVO<String> b) => a.value == b.value,
           decoratorProps: DropDownDecoratorProps(

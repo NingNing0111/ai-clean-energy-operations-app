@@ -32,6 +32,7 @@ class DioClient {
           return handler.next(options);
         },
         onResponse: (response, handler) {
+          printError(info: "code====>${response.statusCode}");
           if(response.statusCode == 403) {
             Get.offNamed("/login");
           }

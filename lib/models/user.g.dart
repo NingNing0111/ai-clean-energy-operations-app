@@ -7,12 +7,14 @@ part of 'user.dart';
 // **************************************************************************
 
 AuthVO _$AuthVOFromJson(Map<String, dynamic> json) => AuthVO(
+  id: json['id'] as String,
   username: json['username'] as String,
   token: json['token'] as String,
   roles: (json['roles'] as List<dynamic>).map((e) => e as String).toList(),
 );
 
 Map<String, dynamic> _$AuthVOToJson(AuthVO instance) => <String, dynamic>{
+  'id': instance.id,
   'username': instance.username,
   'token': instance.token,
   'roles': instance.roles,

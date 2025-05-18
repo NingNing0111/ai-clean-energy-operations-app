@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'vehicle_report_vo.g.dart';
+part 'vehicle_report.g.dart';
 
 @JsonSerializable()
 class VehicleDepartureReportVO {
@@ -18,7 +18,6 @@ class VehicleDepartureReportVO {
 
   // 出车时间
   final String departureTime; // 使用 String 存储 ISO 格式时间（推荐）
-
   // 出车时的公里数
   final double departureMileage;
 

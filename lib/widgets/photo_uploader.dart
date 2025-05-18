@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class PhotoUploader extends StatefulWidget {
-  final void Function(File?)? onChanged;
+  final Future<void> Function(File?)? onChanged;
 
   const PhotoUploader({super.key, this.onChanged});
 
@@ -34,7 +34,7 @@ class _PhotoUploaderState extends State<PhotoUploader> {
                       setState(() {
                         _imageFile = File(pickedFile.path);
                       });
-                      widget.onChanged?.call(_imageFile);
+                      await widget.onChanged?.call(_imageFile);
                     }
                   },
                 ),

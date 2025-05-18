@@ -4,11 +4,12 @@ part 'user.g.dart';
 
 @JsonSerializable()
 class AuthVO {
+  final String id;
   final String username;
   @JsonKey(includeIfNull: false)
   final String token;
   final List<String> roles;
-  AuthVO({required this.username, required this.token, required this.roles});
+  AuthVO({required this.id,required this.username, required this.token, required this.roles});
 
 
   factory AuthVO.fromJson(Map<String, dynamic> json) => _$AuthVOFromJson(json);
@@ -16,7 +17,7 @@ class AuthVO {
 
   @override
   String toString() {
-    return 'AuthVO{username: $username, token: $token, roles: $roles}';
+    return 'AuthVO{id: $id,username: $username, token: $token, roles: $roles}';
   }
 }
 
