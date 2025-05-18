@@ -28,7 +28,6 @@ class _BaseLayoutState extends State<BaseLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('智慧收运平台')),
       body:  _bottomNavigationBarPage[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,

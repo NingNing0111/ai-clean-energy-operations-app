@@ -1,6 +1,10 @@
 import 'package:ai_clean_energy_operations_app/models/user.dart';
 import 'package:ai_clean_energy_operations_app/services/auth_service.dart';
+import 'package:ai_clean_energy_operations_app/utils/message.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../store/user.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final userStore = Get.find<UserStore>();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _obscurePassword = true;
@@ -24,15 +29,23 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
     //
-    final authVO = await login(AuthLoginVO(username: username, password: password));
-    print(authVO.toString());
+    final res = await login(AuthLoginVO(username: username, password: password));
+    if(res.code == 0) {
+      await userStore.saveUser(res.data);
+      ToastUtils.showSuccess("登录成功");
+      // 跳转到 /home
+      Get.offAllNamed('/');
+    }else{
+      ToastUtils.showError(res.message);
+    }
+
   }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('宣威智慧收运平台-登录'),
+        title: const Text('宣威智慧收运平台'),
         centerTitle: true,
         backgroundColor: Colors.blue, // Add app bar color
       ),

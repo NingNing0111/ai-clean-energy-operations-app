@@ -1,3 +1,4 @@
+import 'package:ai_clean_energy_operations_app/widgets/app_item.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,10 +10,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Tab> homeTabs = [Tab(text: '收运'), Tab(text: '管理')];
-  final List<BottomNavigationBarItem> bottomItems = [
-    BottomNavigationBarItem(icon: Icon(Icons.apps), label: '应用'),
-    BottomNavigationBarItem(icon: Icon(Icons.message), label: '消息'),
-    BottomNavigationBarItem(icon: Icon(Icons.person), label: '我的'),
+
+  final List<AppItemDescription> appItems = [
+    AppItemDescription(toPage: '/collectManager', iconPath: 'assets/icon/home/location.svg', title: '收运点管理'),
+    AppItemDescription(toPage: '/vehicleReport', iconPath: 'assets/icon/home/car.svg', title: '车辆填报'),
+    AppItemDescription(toPage: '/refuelRecord', iconPath: 'assets/icon/home/refuel.svg', title: '加油填报'),
+    AppItemDescription(toPage: '/maintenanceRecord', iconPath: 'assets/icon/home/maintenance.svg', title: '维修保养'),
+    AppItemDescription(toPage: '/ureaRefillRecord', iconPath: 'assets/icon/home/urea.svg', title: '尿素填报'),
   ];
 
   @override
@@ -40,71 +44,14 @@ class _HomePageState extends State<HomePage> {
             GridView.count(
               padding: const EdgeInsets.only(left: 0, right: 0, top: 30, bottom: 0),
               crossAxisCount: 4,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.assignment_turned_in, size: 36),
-                      const SizedBox(height: 6),
-                      Text('收运审核', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.assignment_turned_in, size: 36),
-                      const SizedBox(height: 6),
-                      Text('收运审核', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.assignment_turned_in, size: 36),
-                      const SizedBox(height: 6),
-                      Text('收运审核', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.assignment_turned_in, size: 36),
-                      const SizedBox(height: 6),
-                      Text('收运审核', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.assignment_turned_in, size: 36),
-                      const SizedBox(height: 6),
-                      Text('收运审核', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                ),
-              ],
+              children: appItems
             ),
-            GridView.count(crossAxisCount: 4, children: []),
+            GridView.count(
+                padding: const EdgeInsets.only(left: 0, right: 0, top: 30, bottom: 0),
+                crossAxisCount: 4,
+                children: appItems
+            ),
           ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0,
-          items: bottomItems,
         ),
       ),
     );

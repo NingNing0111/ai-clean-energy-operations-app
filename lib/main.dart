@@ -1,4 +1,5 @@
 import 'package:ai_clean_energy_operations_app/pages/layout.dart';
+import 'package:ai_clean_energy_operations_app/store/user.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -6,7 +7,22 @@ import 'package:get/get.dart';
 import 'routes.dart';
 
 Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // 加载环境配置
   await dotenv.load(fileName: '.env');
+  // 初始化
+  final userStore = UserStore();
+  await userStore.init();
+
+  var flushLoginStatus = dotenv.env['FLUSH_LOGIN_STATUS']?.toLowerCase() == 'true';
+  if (flushLoginStatus) {
+    await userStore.logout();
+  }
+
+  // 依赖注入
+  Get.put(userStore);
   runApp(MyApp());
 }
 
