@@ -1,4 +1,3 @@
-import 'package:ai_clean_energy_operations_app/pages/layout.dart';
 import 'package:ai_clean_energy_operations_app/store/user.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';

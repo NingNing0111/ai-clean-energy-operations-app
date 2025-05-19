@@ -101,3 +101,24 @@ Map<String, dynamic> _$VehicleReportVOToJson(VehicleReportVO instance) =>
       'arrivalPhotoId': instance.arrivalPhotoId,
       'arrivalPhotoUrl': instance.arrivalPhotoUrl,
     };
+
+NeedArrivalReportVO _$NeedArrivalReportVOFromJson(Map<String, dynamic> json) =>
+    NeedArrivalReportVO(
+      id: json['id'] as String?,
+      vehicleNumber: json['vehicleNumber'] as String?,
+      driverName: json['driverName'] as String?,
+      workerName: json['workerName'] as String?,
+      departureTime: json['departureTime'] as String?,
+      arrivalTime: json['arrivalTime'] as String?,
+    );
+
+Map<String, dynamic> _$NeedArrivalReportVOToJson(
+  NeedArrivalReportVO instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'vehicleNumber': instance.vehicleNumber,
+  'driverName': instance.driverName,
+  'workerName': instance.workerName,
+  'departureTime': instance.departureTime,
+  'arrivalTime': instance.arrivalTime,
+};

@@ -46,10 +46,7 @@ class VehicleReport extends StatelessWidget {
               color: Colors.green.shade400,
               icon: Icons.fire_truck,
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ArrivalReportPage()),
-                );
+                Get.toNamed('/arrivalReportList');
               },
             ),
           ],

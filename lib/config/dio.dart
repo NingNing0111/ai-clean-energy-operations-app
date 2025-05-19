@@ -35,6 +35,7 @@ class DioClient {
           printError(info: "code====>${response.statusCode}");
           if(response.statusCode == 403) {
             Get.offNamed("/login");
+            return;
           }
           if(response.data['code'] != 0) {
             // 异常处理

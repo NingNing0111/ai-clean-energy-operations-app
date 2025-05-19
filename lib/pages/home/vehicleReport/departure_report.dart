@@ -104,7 +104,7 @@ class _DepartureReportPageState extends State<DepartureReportPage> {
           ),
           const SizedBox(height: 32),
           ElevatedButton(
-            onPressed: onSubmit,
+            onPressed: _onSubmit,
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
               minimumSize: const Size.fromHeight(48),
@@ -119,7 +119,7 @@ class _DepartureReportPageState extends State<DepartureReportPage> {
     );
   }
 
-  Future<void> onSubmit() async {
+  Future<void> _onSubmit() async {
     if (vehicleId.value == '') {
       ToastUtils.showError("车辆未选择");
       return;

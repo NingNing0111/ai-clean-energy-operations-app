@@ -165,5 +165,44 @@ class VehicleReportVO {
   }
 }
 
+@JsonSerializable()
+class NeedArrivalReportVO {
+  final String? id;
+
+  /// 车辆编号
+  final String? vehicleNumber;
+
+  /// 司机姓名
+  final String? driverName;
+
+  /// 收运工姓名
+  final String? workerName;
+
+  /// 出车时间（字符串格式：yyyy-MM-dd HH:mm:ss）
+  final String? departureTime;
+
+  /// 到厂时间（字符串格式：yyyy-MM-dd HH:mm:ss）
+  final String? arrivalTime;
+
+  NeedArrivalReportVO({
+    this.id,
+    this.vehicleNumber,
+    this.driverName,
+    this.workerName,
+    this.departureTime,
+    this.arrivalTime,
+  });
+
+  factory NeedArrivalReportVO.fromJson(Map<String, dynamic> json) =>
+      _$NeedArrivalReportVOFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NeedArrivalReportVOToJson(this);
+
+  @override
+  String toString() {
+    return 'NeedArrivalReportVO{id: $id, vehicleNumber: $vehicleNumber, driverName: $driverName, '
+        'workerName: $workerName, departureTime: $departureTime, arrivalTime: $arrivalTime}';
+  }
+}
 
 
