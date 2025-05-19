@@ -1,6 +1,6 @@
 import 'package:ai_clean_energy_operations_app/pages/home/collect_manager.dart';
 import 'package:ai_clean_energy_operations_app/pages/home/home.dart';
-import 'package:ai_clean_energy_operations_app/pages/home/maintenance_record.dart';
+import 'package:ai_clean_energy_operations_app/pages/home/maintenance/maintenance_record.dart';
 import 'package:ai_clean_energy_operations_app/pages/home/refuel_record.dart';
 import 'package:ai_clean_energy_operations_app/pages/home/urea_refill_record.dart';
 import 'package:ai_clean_energy_operations_app/pages/home/vehicleReport/arrival_list_view.dart';

@@ -29,7 +29,7 @@ class _ArrivalReportState extends State<ArrivalReport> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("发车填报", style: TextStyle(color: Colors.black)),
+        title: const Text("到厂填报", style: TextStyle(color: Colors.black)),
         centerTitle: true,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
